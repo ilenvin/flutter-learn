@@ -17,38 +17,38 @@ class Home extends StatelessWidget {
         title: const Text('Ei app'),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(20.0),
-            color: Colors.cyan,
-            child: const Text('Hello ei'),
+          Expanded(
+            child: Image.asset('assets/original.jpg'),
+            flex: 3,
           ),
-          Container(
-            padding: const EdgeInsets.all(30.0),
-            color: Colors.deepPurple[100],
-            child: const Text('Hello ei 2'),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.all(30.0),
+              color: Colors.deepPurple[100],
+              child: const Text('1'),
+            ),
           ),
-          Container(
-            padding: const EdgeInsets.all(40.0),
-            color: Colors.green[100],
-            child: const Text('Hello ei 3'),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.all(30.0),
+              color: Colors.deepOrange[100],
+              child: const Text('2'),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.all(30.0),
+              color: Colors.cyan[100],
+              child: const Text('3'),
+            ),
           ),
         ],
       ),
-      // Text(
-      //   'hello ei',
-      //   style: TextStyle(
-      //     fontSize: 20.0,
-      //     fontWeight: FontWeight.bold,
-      //     letterSpacing: 2.0,
-      //     color: Colors.grey[600],
-      //     fontFamily: 'Poppins',
-      //   ),
-      // ),
-
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Text('click'),
