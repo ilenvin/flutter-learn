@@ -17,20 +17,24 @@ class Home extends StatelessWidget {
         title: const Text('Ei app'),
         centerTitle: true,
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('hello ei'),
-          FlatButton(
-            onPressed: () {},
-            color: Colors.amber[100],
-            child: const Text('click me'),
+          Container(
+            padding: const EdgeInsets.all(20.0),
+            color: Colors.cyan,
+            child: const Text('Hello ei'),
           ),
           Container(
-            color: Colors.cyan,
             padding: const EdgeInsets.all(30.0),
-            child: const Text('inside container'),
+            color: Colors.deepPurple[100],
+            child: const Text('Hello ei 2'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(40.0),
+            color: Colors.green[100],
+            child: const Text('Hello ei 3'),
           ),
         ],
       ),
