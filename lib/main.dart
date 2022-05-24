@@ -6,8 +6,15 @@ void main() {
   runApp(const MaterialApp(home: EiCard()));
 }
 
-class EiCard extends StatelessWidget {
+class EiCard extends StatefulWidget {
   const EiCard({Key? key}) : super(key: key);
+
+  @override
+  State<EiCard> createState() => _EiCardState();
+}
+
+class _EiCardState extends State<EiCard> {
+  int eiLevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +28,15 @@ class EiCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.brown[200],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            eiLevel += 1;
+          });
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.brown[400],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -58,9 +74,9 @@ class EiCard extends StatelessWidget {
               style: TextStyle(color: Colors.brown, letterSpacing: 2.0),
             ),
             const SizedBox(height: 10.0),
-            const Text(
-              '99',
-              style: TextStyle(
+            Text(
+              '$eiLevel',
+              style: const TextStyle(
                 color: Colors.grey,
                 letterSpacing: 2.0,
                 fontSize: 28.0,
