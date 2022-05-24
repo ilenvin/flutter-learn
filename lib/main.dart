@@ -27,6 +27,29 @@ class _QuoteListState extends State<QuoteList> {
     // 'The truth is rarely pure and never simple',
   ];
 
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              quote.text,
+              style: const TextStyle(fontSize: 18.0, color: Colors.grey),
+            ),
+            const SizedBox(height: 6.0),
+            Text(
+              quote.author,
+              style: const TextStyle(fontSize: 14.0, color: Colors.brown),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,15 +58,12 @@ class _QuoteListState extends State<QuoteList> {
         title: const Text(
           'Ei Quote',
         ),
-        elevation: 0.0,
         backgroundColor: Colors.brown[200],
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: quotes
-            .map((quote) => Text('${quote.text} - ${quote.author}'))
-            .toList(),
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
       ),
     );
   }
