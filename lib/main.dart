@@ -3,56 +3,88 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(home: Home()));
+  runApp(const MaterialApp(home: EiCard()));
 }
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class EiCard extends StatelessWidget {
+  const EiCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.brown[50],
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple[100],
-        title: const Text('Ei app'),
+        title: const Text(
+          'Ei ID Card',
+          style: TextStyle(fontFamily: 'Poppins'),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.brown[200],
+        elevation: 0.0,
       ),
-      body: Row(
-        children: [
-          Expanded(
-            child: Image.asset('assets/original.jpg'),
-            flex: 3,
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.all(30.0),
-              color: Colors.deepPurple[100],
-              child: const Text('1'),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            const Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('../assets/xielian.jpg'),
+                radius: 40.0,
+              ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.all(30.0),
-              color: Colors.deepOrange[100],
-              child: const Text('2'),
+            Divider(
+              height: 60.0,
+              color: Colors.brown[200],
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.all(30.0),
-              color: Colors.cyan[100],
-              child: const Text('3'),
+            const Text(
+              'NAME',
+              style: TextStyle(color: Colors.brown, letterSpacing: 2.0),
             ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Text('click'),
-        backgroundColor: Colors.deepPurple[100],
+            const SizedBox(height: 10.0),
+            const Text(
+              'Ei',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 30.0),
+            const Text(
+              'CURRENT EI LEVEL',
+              style: TextStyle(color: Colors.brown, letterSpacing: 2.0),
+            ),
+            const SizedBox(height: 10.0),
+            const Text(
+              '99',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 30.0),
+            Row(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                const Icon(
+                  Icons.email,
+                  color: Colors.brown,
+                ),
+                const SizedBox(width: 10.0),
+                const Text(
+                  'smolbean.ei@gmail.com',
+                  style: TextStyle(
+                      color: Colors.grey, fontSize: 18.0, letterSpacing: 1.0),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
