@@ -23,14 +23,10 @@ class _QuoteListState extends State<QuoteList> {
         text: 'Be yourself; everyone else is already taken',
         author: 'Oscar Wilde'),
     Quote(text: 'Whatever the world think, stay true', author: 'Smolbean Ei'),
-    // 'Be yourself; everyone else is already taken',
-    // 'I have nothing to declare except my sarrow',
-    // 'The truth is rarely pure and never simple',
+    Quote(
+        text: 'You can do anything if you put your mind into it!',
+        author: 'Smolbean Ei'),
   ];
-
-  // Widget quoteTemplate(quote) {
-  //   return const QuoteCard();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +43,12 @@ class _QuoteListState extends State<QuoteList> {
       body: Column(
         children: quotes
             .map((quote) => QuoteCard(
-                  quote: quote,
-                ))
+                quote: quote,
+                delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                }))
             .toList(),
       ),
     );

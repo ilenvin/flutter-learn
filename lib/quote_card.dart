@@ -1,11 +1,15 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'quote.dart';
 
 class QuoteCard extends StatelessWidget {
   final Quote quote;
+  final Function delete;
   const QuoteCard({
     Key? key,
     required this.quote,
+    required this.delete,
   }) : super(key: key);
 
   @override
@@ -26,6 +30,12 @@ class QuoteCard extends StatelessWidget {
             Text(
               quote.author,
               style: const TextStyle(fontSize: 14.0, color: Colors.brown),
+            ),
+            const SizedBox(height: 8.0),
+            FlatButton.icon(
+              onPressed: () => delete(),
+              label: const Text('delete quote'),
+              icon: const Icon(Icons.delete),
             ),
           ],
         ),
