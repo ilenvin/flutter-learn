@@ -11,11 +11,29 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
   int counter = 0;
+
+  void getData() async {
+    //simulate network request for a username
+    String username = await Future.delayed(const Duration(seconds: 3), () {
+      return 'ei';
+    });
+
+    //simulate network request to get bio of the username
+    String bio = await Future.delayed(const Duration(seconds: 2), () {
+      // ignore: avoid_print
+      return 'alien, smolbean & bias';
+    });
+
+    // ignore: avoid_print
+    print('$username - $bio');
+  }
+
   @override
   void initState() {
     super.initState();
+    getData();
     // ignore: avoid_print
-    print('initState function ran');
+    print('hey ei');
   }
 
   @override
